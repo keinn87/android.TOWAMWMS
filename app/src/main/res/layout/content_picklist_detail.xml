@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.globalsion.utils.StringUtil" />
+        <import type="android.text.TextUtils" />
+
+        <variable name="picklistDetail" type="com.towamwms.entities.PicklistDetail" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/text_r_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{TextUtils.concat(StringUtil.htmlBold("R Code: "), picklistDetail.part.rCode)}'
+            app:layout_constraintEnd_toStartOf="@+id/text_q_code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_q_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{TextUtils.concat(StringUtil.htmlBold("Q Code: "), picklistDetail.part.item.code)}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_r_code"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_drawing_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{TextUtils.concat(StringUtil.htmlBold("Drawing No: "), picklistDetail.part.drawingNo)}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_r_code" />
+
+        <TextView
+            android:id="@+id/text_quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{TextUtils.concat(StringUtil.htmlBold("Quantity: "), Integer.toString(picklistDetail.part.quantity))}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_drawing_no" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

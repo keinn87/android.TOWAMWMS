@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.towamwms.viewmodels.MainActivityVM" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/include_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/frame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_main_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="@string/text_main_menu"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text_process"
+                    style="?attr/mainMenuTitleStyle"
+                    android:text="@string/text_process" />
+
+                <Button
+                    android:id="@+id/button_receiving"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_receiving)}"
+                    android:text="@string/text_receiving" />
+
+                <Button
+                    android:id="@+id/button_transferring"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_transferring)}"
+                    android:text="@string/text_transferring" />
+
+                <Button
+                    android:id="@+id/button_final_barcode_printing"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_final_barcode_printing)}"
+                    android:text="@string/text_final_barcode_printing"/>
+
+                <Button
+                    android:id="@+id/button_picking"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_picking)}"
+                    android:text="@string/text_picking"/>
+
+                <Button
+                    android:id="@+id/button_issuing"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_issuing)}"
+                    android:text="@string/text_issuing"/>
+
+                <TextView
+                    android:id="@+id/text_others"
+                    style="?attr/mainMenuTitleStyle"
+                    android:text="@string/text_others" />
+
+                <Button
+                    android:id="@+id/button_settings"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_settings)}"
+                    android:text="@string/text_settings" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/image_logo"
+            style="@style/AppTheme.Logo"
+            android:contentDescription="@string/logo_globalsion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/text_user_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp" />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

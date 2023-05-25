@@ -1,0 +1,120 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.globalsion.utils.DateUtil" />
+
+        <variable
+            name="viewModel"
+            type="com.towamwms.viewmodels.ReceivingActivityVM" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/include_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            app:layout_behavior="com.globalsion.behaviors.SnackbarBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp">
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_receiving_no"
+                        android:text="@{viewModel.receiving.documentNo}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_receiving_date"
+                        android:text="@{DateUtil.format(`dd/MM/yyyy`, viewModel.receiving.documentDate)}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_part_barcode"
+                        style="@style/AppTheme.TextInputEditText"
+                        android:hint="@string/hint_part_barcode"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions"
+                        android:maxLines="1"
+                        android:text="@={viewModel.partBarcode}"
+                        app:onEditorAction="@{viewModel}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_item"
+                        android:text="@{viewModel.receiving.part.item.code}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText"
+                        android:enabled="false"
+                        android:hint="@string/hint_treatment"
+                        android:text="@{viewModel.receiving.part.treatment.code}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_bin"
+                        style="@style/AppTheme.TextInputEditText"
+                        android:hint="@string/hint_bin"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions"
+                        android:maxLines="1"
+                        android:text="@={viewModel.binCode}"
+                        app:onEditorAction="@{viewModel}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_bin_group"
+                        android:text="@{viewModel.receiving.bin.group.description}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_bin_type"
+                        android:text="@{viewModel.receiving.bin.type.description}" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

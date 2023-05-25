@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.globalsion.utils.DateUtil" />
+
+        <variable
+            name="viewModel"
+            type="com.towamwms.viewmodels.PickingActivityVM" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/include_toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_picking_no"
+                        android:text="@{viewModel.picking.documentNo}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/AppTheme.TextInputEditText.Disabled"
+                        android:hint="@string/hint_picking_date"
+                        android:text="@{DateUtil.format(`dd/MM/yyyy`, viewModel.picking.documentDate)}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout style="@style/AppTheme.TextInputEditText.Disabled">
+
+                    <com.globalsion.views.SimpleDropDownEditText
+                        style="@style/AppTheme.TextInputEditText"
+                        android:hint="@string/hint_type"
+                        items="@{viewModel.pickingTypes}"
+                        selectedItem="@{viewModel.pickingType.description}"
+                        onItemSelected="@{viewModel}"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_barcode"
+                        android:text="@={viewModel.barcode}"
+                        app:onEditorAction="@{viewModel}"
+                        android:maxLines="1"
+                        android:inputType="textNoSuggestions"
+                        android:imeOptions="actionDone" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

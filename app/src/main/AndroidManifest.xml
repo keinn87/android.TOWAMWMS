@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.towamwms">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.VIBRATE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:fullBackupContent="false"
+        android:name=".MainApplication"
+        android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name=".activities.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.LoginActivity"
+            android:label="@string/app_name" android:launchMode="singleTask" />
+        <activity android:name=".activities.SettingsActivity"
+            android:label="@string/title_settings" android:launchMode="singleTask" />
+        <activity android:name=".activities.ReceivingActivity"
+            android:label="@string/title_receiving" android:launchMode="singleTask" />
+        <activity android:name=".activities.TransferringActivity"
+            android:label="@string/title_transferring" android:launchMode="singleTask" />
+        <activity android:name=".activities.FinalBarcodePrintingActivity"
+            android:label="@string/title_final_barcode_printing" android:launchMode="singleTask" />
+        <activity android:name=".activities.PickingActivity"
+            android:label="@string/title_picking" android:launchMode="singleTask" />
+        <activity android:name=".activities.IssuingActivity"
+            android:label="@string/title_issuing" android:launchMode="singleTask" />
+    </application>
+</manifest>

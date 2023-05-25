@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="CATEGORY_SYSTEM_SETTINGS"
+        android:title="@string/title_system_settings">
+        <EditTextPreference
+            android:key="PREF_API_SERVER_URL"
+            android:summary="@string/summary_server_address"
+            android:title="@string/title_server_address"
+            android:defaultValue="http://192.168.130.17:8080/TOWAMWMS/api"/>
+
+        <EditTextPreference
+            android:key="PREF_PRINTER_NAME"
+            android:summary="@string/summary_printer_name"
+            android:title="@string/title_printer_name"
+            android:defaultValue="GT800 S55x85mm (B)"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="CATEGORY_DEVELOPER_SETTINGS"
+        android:title="@string/title_developer_settings">
+        <SwitchPreference
+            android:key="PREF_API_PACKET_COMPRESSION"
+            android:title="@string/title_api_packet_compression" />
+        <SwitchPreference
+            android:key="PREF_API_PACKET_LOG_COMPRESSION_RATE"
+            android:title="@string/title_api_packet_log_compression_rate" />
+        <SwitchPreference
+            android:key="PREF_API_PACKET_LOG_RAW_JSON"
+            android:title="@string/title_api_packet_log_raw_json" />
+    </PreferenceCategory>
+</PreferenceScreen>
