@@ -119,6 +119,10 @@ class MainActivity: AbstractVMActivity<MainActivityVM>() {
                 val intent = FinalBarcodePrintingActivity.newIntent(this)
                 startActivity(intent)
             }
+            R.id.button_part_enquiry-> {
+                val intent = PartEnquiryActivity.newIntent(this)
+                startActivity(intent)
+            }
             R.id.button_settings -> {
                 val intent = SettingsActivity.newIntent(this, true)
                 startActivity(intent)

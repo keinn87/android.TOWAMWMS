@@ -12,6 +12,8 @@ class PartApiService(rootUrl: String) : AbstractApiService(rootUrl), Fetchable<P
     companion object {
         const val FILTER_ID = "id"
         const val FILTER_BARCODE = "barcode"
+        const val FILTER_DELETED = "deleted"
+        const val FILTER_MFGNO = "mfgNo"
     }
 
     override fun getRecords(user: User, filters: HashMap<String, Any?>?, predicates: HashMap<String, Any?>?) : Array<Part> {

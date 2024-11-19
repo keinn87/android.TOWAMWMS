@@ -23,6 +23,7 @@
     <string name="text_final_barcode_printing">Final Barcode Printing</string>
     <string name="text_picking">Picking</string>
     <string name="text_issuing">Issuing</string>
+    <string name="text_part_enquiry">Part Enquiry</string>
     <string name="text_main_menu"><b>Main Menu</b></string>
     <string name="text_process">Process</string>
     <string name="text_process_underlined"><u>Process</u></string>
@@ -71,6 +72,8 @@
     <string name="hint_destination_bin_group">Destination Bin Group</string>
     <string name="hint_destination_bin_type">Destination Bin Type</string>
     <string name="hint_line_of_items">Line of Items</string>
+    <string name="hint_seq">Sequence</string>
+    <string name="hint_status">Status</string>
 
     <string name="message_authentication_failed">Invalid username or password.</string>
     <string name="message_user_qr_fail">Invalid user QR Code.</string>

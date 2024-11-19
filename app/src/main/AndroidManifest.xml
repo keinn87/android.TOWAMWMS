@@ -41,5 +41,7 @@
             android:label="@string/title_picking" android:launchMode="singleTask" />
         <activity android:name=".activities.IssuingActivity"
             android:label="@string/title_issuing" android:launchMode="singleTask" />
+        <activity android:name=".activities.PartEnquiryActivity"
+            android:label="Part Enquiry" android:launchMode="singleTask" />
     </application>
 </manifest>

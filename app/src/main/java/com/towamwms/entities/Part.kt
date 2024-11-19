@@ -7,6 +7,7 @@ import com.globalsion.helpers.ParcelHelper
 import com.google.gson.annotations.SerializedName
 import com.towamwms.enums.EnumPartStatus
 import com.towamwms.enums.EnumPartType
+import java.math.BigDecimal
 
 @Suppress("unused")
 class Part: Entity {
@@ -18,6 +19,7 @@ class Part: Entity {
     var processCD1: String? = null
     var processCD2: String? = null
     var processCD3: String? = null
+    var image: String? = null
     var quality: String? = null
     var tracking: String? = null
     var quantity: Int = 0
@@ -33,6 +35,9 @@ class Part: Entity {
     var bin: Bin? = null
     @SerializedName("partPurchase")
     var partPurchase: PartPurchase? = null
+
+    var totalMfgStatus: Int = 0
+
 
 
     constructor()
@@ -61,6 +66,7 @@ class Part: Entity {
         processCD1 = parcel.readString()
         processCD2 = parcel.readString()
         processCD3 = parcel.readString()
+        image = parcel.readString()
         quality = parcel.readString()
         tracking = parcel.readString()
         quantity = parcel.readInt()
@@ -86,6 +92,7 @@ class Part: Entity {
         parcel.writeString(processCD1)
         parcel.writeString(processCD2)
         parcel.writeString(processCD3)
+        parcel.writeString(image)
         parcel.writeString(quality)
         parcel.writeString(tracking)
         parcel.writeInt(quantity)

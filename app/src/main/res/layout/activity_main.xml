@@ -88,6 +88,13 @@
                     android:onClick="@{() -> viewModel.callCommandButton(@id/button_issuing)}"
                     android:text="@string/text_issuing"/>
 
+                <Button
+                    android:id="@+id/button_part_enquiry"
+                    style="?attr/mainMenuButtonStyle"
+                    android:drawableStart="@null"
+                    android:onClick="@{() -> viewModel.callCommandButton(@id/button_part_enquiry)}"
+                    android:text="@string/text_part_enquiry"/>
+
                 <TextView
                     android:id="@+id/text_others"
                     style="?attr/mainMenuTitleStyle"
